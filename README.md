@@ -1,2 +1,1 @@
-# JS
-My Own Color Gradient Project 
+Here is My All JS Project 
