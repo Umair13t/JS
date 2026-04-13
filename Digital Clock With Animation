@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            overflow-x: hidden;
+        }
+        h3{
+            color: aqua;
+            position: relative;
+            top: 20vh;
+            /* left: 45vw; */
+            display: flex;
+            justify-content: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2rem;
+
+        }
+    .clock{
+        background-color: transparent;
+        color: aqua;
+        height: 20vh;
+        width: 20vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 10px;
+        position: relative;
+        top: 30vh;
+        left: 40vw;
+        border-top: 6px solid rgb(43, 255, 0);
+        border-right: 6px solid rgb(255, 0, 0);
+        border-bottom: 6px solid rgb(4, 0, 255);
+        border-left: 6px solid rgb(255, 0, 191);
+        border-radius: 40px;
+        animation: clck 1s ease-in-out  infinite forwards ;
+    }
+    @keyframes clck {
+        25%{
+            border-top: 6px solid rgb(255, 0, 191);
+            border-right: 6px solid rgb(43, 255, 0);
+            border-bottom: 6px solid rgb(255, 0, 0);
+            border-left: 6px solid rgb(4, 0, 255);
+            
+        }
+        50%{
+            border-bottom: 6px solid rgb(43, 255, 0);
+            border-left: 6px solid rgb(255, 0, 0);
+            border-top: 6px solid rgb(4, 0, 255);
+            border-right: 6px solid rgb(255, 0, 191);
+
+        }
+        75%{
+            border-right: 6px solid rgb(4, 0, 255);
+            border-left: 6px solid rgb(43, 255, 0);
+            border-top: 6px solid rgb(255, 0, 0);
+            border-bottom: 6px solid rgb(255, 0, 191);
+
+        }
+        100%{
+            border-right: 6px solid rgb(255, 0, 0);
+            border-bottom: 6px solid rgb(4, 0, 255);
+            border-left: 6px solid rgb(255, 0, 191);
+            border-top: 6px solid rgb(43, 255, 0);
+
+        }
+        
+    }
+
+    </style>
+</head>
+<body>
+
+    <h3>Digital Clock</h3>
+    <div class="clock" id="clock"><h1>00:00:00</h1></div>
+
+ <script>
+     let clock=()=>{
+
+        let neu=document.querySelector("#clock");
+        let now= new Date();
+        let hours=now.getHours();
+        let min=now.getMinutes();
+        let sec=now.getSeconds();
+
+        hours=hours<10 ? "0"+hours :hours;
+        min=min<10 ? "0"+min :min;
+        sec=sec<10 ? "0"+sec :sec;
+
+        let time=`${hours}:${min}:${sec}`
+        neu.innerHTML=time;
+    //     if (time=="22:46:20") ....  Alarm
+    //  {
+    //     alert('Goodmorning');
+    //  }
+    }
+    clock()
+    setInterval(clock,100);
+ </script>
+</body>
+</html>
