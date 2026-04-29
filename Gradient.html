@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image:linear-gradient(to right,rgb(125, 132, 238),rgb(128, 12, 50));
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        .btn1{
+            color: aliceblue;
+            background-color: rgb(125, 132, 238);
+            border: 2px solid rgb(255, 247, 247);
+            border-radius: 10px;
+            position: relative;
+            left: 40vw;
+            top: 30vh;
+            height: 50px;
+            width: 100px;
+            box-shadow: 5px 5px 7px rgb(0, 0, 0);
+            outline: none;
+        }
+        .btn1:hover{
+            /* filter: contrast(50%); */
+            box-shadow: none;
+            
+        }
+        .btn2:hover{
+            /* filter: contrast(50%); */
+            box-shadow: none;
+        }
+        .btn2{
+            color: aliceblue;
+
+            background-color: rgb(128, 12, 50);
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            position: relative;
+            left: 45vw;
+            top: 30vh;
+            height: 50px;
+            width: 100px;
+            box-shadow: 5px 5px 7px rgb(0, 0, 0);
+
+        }
+        h3{
+             position: relative;
+             color: white;
+            left: 45vw;
+            top: 38vh;
+            font-weight: 50;
+           
+        }
+        .copycode{
+            background-color: rgb(0, 0, 0);
+            color: beige;
+            border-left: 3px solid white;
+            width: 22vw;
+            height: 15vh;
+            position: relative;
+            left: 39vw;
+            top: 50vh;
+            text-align: center;
+            align-content: center;
+            cursor:copy;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div >
+            <button id="btn1" class="btn1">#54636</button>
+            <button id="btn2" class="btn2">#35276</button>
+        </div>
+        <h3>Copy code here!</h3>
+        <div class="copycode" id="copycode">
+            <p>Select Any  Gradient Color Here</p>
+    </div>
+    </section>
+
+<script>
+
+    let btn1=document.querySelector("#btn1");
+    let btn2=document.querySelector("#btn2");
+    let copy=document.querySelector("#copycode");
+    let col="-----";
+    let colo="-----";
+  
+    let copyy=()=>{
+        console.log("Click copy ");
+        navigator.clipboard.writeText(copycode.innerText);
+        alert('Clipboard Copied :'+copycode.innerText);
+    }
+    copycode.addEventListener("click",()=>
+{
+    copyy();
+})
+
+    let mybtn1=()=>{
+        let mynum="0123456789abcdef";
+         col="#"
+        for(let i=0;i<6;i++)
+        {
+            col=col+(mynum[Math.floor(Math.random()*16)]);
+        }
+        console.log(col);  // console.log("Clicked1");
+        document.body.style.backgroundImage=`linear-gradient(to right,${col},#444)`;
+
+        document.body.style.backgroundImage=`linear-gradient(to right,${col},${colo})`;   //btn1  se bg color change
+        let neu=document.getElementById("copycode");
+        neu.innerText=(`background-image:linear-gradient(to right,${col},${colo})`);         
+        let btntxt=document.getElementById("btn1");       //btn1 name change
+        btntxt.innerText=(`${col}`);
+        let btnclr=document.querySelector("#btn1");       //btn1 bg color change
+         btnclr.style.backgroundColor = col;
+
+    }
+
+
+
+    let mybtn2=()=>{
+        let mynum="0123456789abcdef";
+         colo="#"
+        for(let i=0;i<6;i++)
+        {
+          colo=colo+(mynum[Math.floor(Math.random()*16)]);
+        }
+        console.log(colo); // console.log("Clicked2");
+        document.body.style.backgroundImage=`linear-gradient(to right,#444,${colo})`;
+
+        document.body.style.backgroundImage=`linear-gradient(to right,${col},${colo})`;   //btn2 se bg color change
+        let neu=document.getElementById("copycode");
+        neu.innerText=(`background-image:linear-gradient(to right,${col},${colo})`);   
+
+          let btntxt=document.getElementById("btn2");   //btn2 name change
+        btntxt.innerText=(`${colo}`);
+
+        let btnclr=document.querySelector("#btn2"); //btn2 bg color
+         btnclr.style.backgroundColor = colo;
+
+    }
+    
+   
+    btn1.addEventListener("click",()=>{
+        mybtn1();
+    })
+    btn2.addEventListener("click",()=>{
+        mybtn2();
+    })
+</script>
+
+</body>
+</html>
